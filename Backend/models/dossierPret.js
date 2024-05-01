@@ -1,4 +1,3 @@
-const DemandePret = require("./demandePret");
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
@@ -22,14 +21,6 @@ const DossierPret = sequelize.define("DossierPret", {
   cheminDossier: {
     type: DataTypes.STRING,
     allowNull: true,
-  },
-  timestamps: true,
-});
-
-DossierPret.belongsTo(DemandePret, {
-  foreignKey: {
-    name: "demandePretId",
-    allowNull: false,
   },
 });
 

@@ -2,6 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 const Courtier = require("./courtier");
 const DemandePret = require("./demandePret");
+const Client = require("./client");
 
 const ClientCourtierDemandePret = sequelize.define(
   "ClientCourtierDemandePret",
@@ -30,4 +31,4 @@ const ClientCourtierDemandePret = sequelize.define(
   }
 );
 
-module.exports = { Client, ClientCourtierDemandePret };
+module.exports = { ClientCourtierDemandePret };

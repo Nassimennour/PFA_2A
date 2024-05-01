@@ -64,8 +64,6 @@ const Utilisateur = sequelize.define("Utilisateur", {
     type: DataTypes.ENUM("CLIENT", "COURTIER", "AGENT_PRET", "ADMIN"),
     allowNull: false,
   },
-
-  timestamps: true,
 });
 
 module.exports = Utilisateur;

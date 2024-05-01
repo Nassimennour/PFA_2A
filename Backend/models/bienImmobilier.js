@@ -1,7 +1,6 @@
 const { DataTypes } = require("sequelize");
 
 const sequelize = require("../config/database");
-const DemandePret = require("./demandePret");
 
 const BienImmobilier = sequelize.define("BienImmobilier", {
   typeBien: {
@@ -28,7 +27,6 @@ const BienImmobilier = sequelize.define("BienImmobilier", {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
-  timestamps: true,
 });
 
 const Photo = sequelize.define("Photo", {
@@ -42,9 +40,4 @@ const Photo = sequelize.define("Photo", {
   },
 });
 
-Photo.belongsTo(BienImmobilier);
-BienImmobilier.hasMany(Photo);
-
-BienImmobilier.hasMany(DemandePret);
-
-module.exports = BienImmobilier;
+module.exports = { BienImmobilier, Photo };

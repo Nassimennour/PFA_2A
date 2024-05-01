@@ -1,8 +1,5 @@
-const DemandePret = require("./demandePret");
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
-const TypeDocument = require("./typeDocument");
-const AgentPret = require("./agentPret");
 
 const OrganismePret = sequelize.define("OrganismePret", {
   nom: {
@@ -29,13 +26,6 @@ const OrganismePret = sequelize.define("OrganismePret", {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  timestamps: true,
 });
-
-OrganismePret.belongsToMany(TypeDocument, {
-  through: "OrganismePretTypeDocument",
-});
-OrganismePret.hasMany(AgentPret);
-OrganismePret.hasMany(DemandePret);
 
 module.exports = OrganismePret;

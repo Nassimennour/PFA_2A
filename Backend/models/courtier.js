@@ -1,13 +1,8 @@
 // courtier.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
-const Utilisateur = require("./user");
-const DemandePret = require("./demandePret");
+
 const Note = require("./note");
-const {
-  Client,
-  ClientCourtierDemandePret,
-} = require("./clientCourtierDemandePret");
 
 const Courtier = sequelize.define("Courtier", {
   entreprise: {
@@ -19,27 +14,6 @@ const Courtier = sequelize.define("Courtier", {
     allowNull: true,
   },
 });
-
-Courtier.hasMany(DemandePret, {
-  foreignKey: {
-    name: "courtierId",
-    allowNull: true,
-  },
-});
-Courtier.hasOne(Utilisateur, {
-  foreignKey: {
-    name: "utilisateurId",
-    allowNull: false,
-  },
-});
-
-Courtier.hasMany(Note, {
-  foreignKey: {
-    name: "courtierId",
-    allowNull: false,
-  },
-});
-Courtier.belongsToMany(Client, { through: ClientCourtierDemandePret });
 
 Courtier.prototype.getAverageRating = async function () {
   const notes = await Note.findAll({

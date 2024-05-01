@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
-const OrganismePret = require("./organismePret");
 
 const TypeDocument = sequelize.define("TypeDocument", {
   nom: {
@@ -20,11 +19,6 @@ const TypeDocument = sequelize.define("TypeDocument", {
     type: DataTypes.INTEGER, // en Ko
     allowNull: true,
   },
-  timestamps: true,
-});
-
-TypeDocument.belongsToMany(OrganismePret, {
-  through: "OrganismePretTypeDocument",
 });
 
 module.exports = TypeDocument;
