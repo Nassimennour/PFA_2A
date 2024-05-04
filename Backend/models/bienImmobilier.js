@@ -1,5 +1,5 @@
+// models/bienImmobilier.js
 const { DataTypes } = require("sequelize");
-
 const sequelize = require("../config/database");
 
 const BienImmobilier = sequelize.define("BienImmobilier", {
@@ -26,18 +26,12 @@ const BienImmobilier = sequelize.define("BienImmobilier", {
   valeur: {
     type: DataTypes.FLOAT,
     allowNull: false,
+    validate: {
+      min: 0,
+    },
   },
 });
 
-const Photo = sequelize.define("Photo", {
-  chemin: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  dimension: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-});
-
-module.exports = { BienImmobilier, Photo };
+module.exports = (sequelize, DataTypes) => {
+  return BienImmobilier;
+};

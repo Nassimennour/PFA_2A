@@ -1,20 +1,28 @@
 const express = require("express");
-const db = require("./models"); // Import the db object from index.js
+const bodyParser = require("body-parser");
+const db = require("./models"); // Import your Sequelize models
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Sync all models that aren't already in the database
-db.sequelize
-  .sync({ force: true })
-  .then(() => {
-    console.log("All models were synchronized successfully.");
-  })
-  .catch((error) => {
-    console.error("Error syncing models: ", error);
-  });
+app.use(bodyParser.json());
 
-// Your existing Express setup here...
+// Define your routes here when you have them
+// app.use('/api', yourRouter);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+// Default route
+app.get("/", (req, res) => {
+  res.send("Welcome to your Express application!");
+});
+
+app.listen(PORT, async () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+
+  try {
+    // Sync models with the database
+    await db.sequelize.sync({ force: true }); // Set force to true if you want to drop existing tables and recreate them
+    console.log("Database synchronized successfully.");
+  } catch (error) {
+    console.error("Error synchronizing database:", error);
+  }
 });

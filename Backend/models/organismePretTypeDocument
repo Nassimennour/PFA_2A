@@ -1,0 +1,25 @@
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
+
+const OrganismePretTypeDocument = sequelize.define(
+  "OrganismePretTypeDocument",
+  {
+    required: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    priority: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+  }
+);
+
+module.exports = (sequelize, DataTypes) => {
+  return OrganismePretTypeDocument;
+};

@@ -1,3 +1,4 @@
+// models/document.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
@@ -22,8 +23,15 @@ const Document = sequelize.define("Document", {
   taille: {
     // en Ko
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
+  },
+  status: {
+    type: DataTypes.ENUM,
+    values: ["pending", "submitted", "verified", "rejected"],
+    defaultValue: "pending",
   },
 });
 
-module.exports = Document;
+module.exports = (sequelize, DataTypes) => {
+  return Document;
+};

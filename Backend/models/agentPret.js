@@ -1,8 +1,34 @@
-// agentPret.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const AgentPret = sequelize.define("AgentPret", {
+  nom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  prenom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  adresse: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  telephone: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      is: {
+        args: [/^\d{9,10}$/],
+        msg: "Phone number must be between 9 and 10 digits.",
+      },
+      notContains: {
+        args: [" "],
+        msg: "Phone number must not contain spaces.",
+      },
+    },
+  },
+
   numLicence: {
     type: DataTypes.STRING,
     allowNull: true,
@@ -15,14 +41,8 @@ const AgentPret = sequelize.define("AgentPret", {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  note: {
-    type: DataTypes.FLOAT,
-    allowNull: true,
-    validate: {
-      min: 0,
-      max: 5,
-    },
-  },
 });
 
-module.exports = AgentPret;
+module.exports = (sequelize, DataTypes) => {
+  return AgentPret;
+};

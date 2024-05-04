@@ -1,3 +1,4 @@
+// models/note.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
@@ -15,10 +16,12 @@ const Note = sequelize.define("Note", {
     allowNull: true,
   },
   date: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATE, //YYYY-MM-DD
     allowNull: false,
     defaultValue: DataTypes.NOW,
   },
 });
 
-module.exports = Note;
+module.exports = (sequelize, DataTypes) => {
+  return Note;
+};

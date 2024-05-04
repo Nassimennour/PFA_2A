@@ -1,10 +1,19 @@
-// courtier.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Note = require("./note");
-
 const Courtier = sequelize.define("Courtier", {
+  nom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  prenom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  adresse: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   entreprise: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -13,17 +22,22 @@ const Courtier = sequelize.define("Courtier", {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
+  phone: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      is: {
+        args: [/^\d{9,10}$/],
+        msg: "Phone number must be between 9 and 10 digits.",
+      },
+      notContains: {
+        args: [" "],
+        msg: "Phone number must not contain spaces.",
+      },
+    },
+  },
 });
 
-Courtier.prototype.getAverageRating = async function () {
-  const notes = await Note.findAll({
-    where: { courtierId: this.id },
-    attributes: [[sequelize.fn("AVG", sequelize.col("note")), "noteMoyenne"]],
-  });
-
-  return notes && notes.length > 0
-    ? notes[0].getDataValue("noteMoyenne")
-    : null;
+module.exports = (sequelize, DataTypes) => {
+  return Courtier;
 };
-
-module.exports = Courtier;

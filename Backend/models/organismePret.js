@@ -1,3 +1,4 @@
+// models/organismePret.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
@@ -28,4 +29,6 @@ const OrganismePret = sequelize.define("OrganismePret", {
   },
 });
 
-module.exports = OrganismePret;
+module.exports = (sequelize, DataTypes) => {
+  return OrganismePret;
+};
