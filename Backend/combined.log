@@ -1,0 +1,29 @@
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a PUT request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a PUT request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a PUT request for /users/1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/","service":"user-service"}
+{"level":"info","message":"Received a DELETE request for /clients/1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /clients/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /demandesprets","service":"user-service"}
+{"level":"info","message":"Received a GET request for /demandesprets","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users/","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/","service":"user-service"}
+{"level":"info","message":"Received a POST request for /login/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /clients/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /demandesprets/","service":"user-service"}
+{"level":"info","message":"Received a GET request for /courtiers/","service":"user-service"}

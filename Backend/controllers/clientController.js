@@ -84,7 +84,6 @@ const clientAnalysis = async () => {
   try {
     // Total number of clients
     const totalClients = await Client.count();
-
     // Total number of clients grouped by age range
     const clientsByAgeRange = await Client.findAll({
       attributes: [

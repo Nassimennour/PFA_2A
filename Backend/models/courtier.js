@@ -10,6 +10,11 @@ const Courtier = sequelize.define("Courtier", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  cin: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
   adresse: {
     type: DataTypes.STRING,
     allowNull: false,

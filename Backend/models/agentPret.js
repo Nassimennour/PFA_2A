@@ -14,6 +14,11 @@ const AgentPret = sequelize.define("AgentPret", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  cin: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
   telephone: {
     type: DataTypes.STRING,
     allowNull: false,

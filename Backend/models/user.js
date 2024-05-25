@@ -1,6 +1,7 @@
 // models/typeDocument.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
+const bcrypt = require("bcrypt");
 
 const User = sequelize.define("User", {
   username: {
@@ -23,6 +24,13 @@ const User = sequelize.define("User", {
     type: DataTypes.ENUM("admin", "client", "courtier", "agentPret"),
     allowNull: false,
   },
+});
+
+User.addHook("beforeSave", async (user) => {
+  if (user.changed("password")) {
+    const salt = await bcrypt.genSalt();
+    user.password = await bcrypt.hash(user.password, salt);
+  }
 });
 
 module.exports = (sequelize, DataTypes) => {

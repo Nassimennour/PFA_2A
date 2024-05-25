@@ -31,10 +31,6 @@ const TypeDocument = sequelize.define("TypeDocument", {
     type: DataTypes.INTEGER, //  KB
     allowNull: true,
   },
-  isRequired: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: true, // Default to true for required documents
-  },
   expirationDate: {
     type: DataTypes.DATEONLY,
     allowNull: true,

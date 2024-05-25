@@ -109,8 +109,6 @@ const getAverageNoteForCourtier = async (req, res) => {
   }
 };
 
-// Other analysis methods can be added here
-
 module.exports = {
   createNote,
   getAllNotes,

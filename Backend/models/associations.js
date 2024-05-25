@@ -16,15 +16,14 @@ const associateModels = (models) => {
     OrganismePretTypeDocument,
   } = models;
 
-  // Define associations here
-  // Client has one User
-  Client.hasOne(User, { foreignKey: "clientId" });
+  User.hasOne(Client, { foreignKey: "userId" });
+  Client.belongsTo(User, { foreignKey: "userId" });
 
-  // Courtier has one User
-  Courtier.hasOne(User, { foreignKey: "courtierId" });
+  User.hasOne(Courtier, { foreignKey: "userId" });
+  Courtier.belongsTo(User, { foreignKey: "userId" });
 
-  // AgentPret has one User
-  AgentPret.hasOne(User, { foreignKey: "agentPretId" });
+  User.hasOne(AgentPret, { foreignKey: "userId" });
+  AgentPret.belongsTo(User, { foreignKey: "userId" });
 
   // User has many DemandesPret (assuming you meant DemandePret)
   Client.hasMany(DemandePret, { foreignKey: "clientId" });

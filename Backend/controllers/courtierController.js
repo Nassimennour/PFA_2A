@@ -1,4 +1,5 @@
-const { Courtier } = require("../models");
+const { Courtier, DemandePret, sequelize } = require("../models");
+const { Op } = require("sequelize");
 
 const createCourtier = async (req, res) => {
   try {
@@ -90,10 +91,44 @@ const deleteCourtier = async (req, res) => {
   }
 };
 
+const countLoansByCourtier = async () => {
+  return await DemandePret.count({
+    group: ["courtierId"],
+    include: [
+      { model: Courtier, as: "courtier", attributes: ["nom", "prenom"] },
+    ],
+  });
+};
+
+const averageLoanAmountByCourtier = async () => {
+  return await DemandePret.findAll({
+    group: ["courtierId"],
+    attributes: [
+      [sequelize.fn("AVG", sequelize.col("montant")), "averageLoanAmount"],
+    ],
+    include: [
+      { model: Courtier, as: "courtier", attributes: ["nom", "prenom"] },
+    ],
+  });
+};
+
+const countActiveLoansByCourtier = async () => {
+  return await DemandePret.count({
+    where: { judgment: "accepted" },
+    group: ["courtierId"],
+    include: [
+      { model: Courtier, as: "courtier", attributes: ["nom", "prenom"] },
+    ],
+  });
+};
+
 module.exports = {
   createCourtier,
   getAllCourtiers,
   getCourtierById,
   updateCourtier,
   deleteCourtier,
+  countActiveLoansByCourtier,
+  countLoansByCourtier,
+  averageLoanAmountByCourtier,
 };
