@@ -3,7 +3,8 @@ const { Op } = require("sequelize");
 
 const createCourtier = async (req, res) => {
   try {
-    const { nom, prenom, adresse, entreprise, experience, phone } = req.body;
+    const { nom, prenom, adresse, entreprise, experience, phone, cin } =
+      req.body;
     const newCourtier = await Courtier.create({
       nom,
       prenom,
@@ -11,6 +12,7 @@ const createCourtier = async (req, res) => {
       entreprise,
       experience,
       phone,
+      cin,
     });
     res.status(201).json(newCourtier);
   } catch (error) {
@@ -51,7 +53,7 @@ const getCourtierById = async (req, res) => {
 
 const updateCourtier = async (req, res) => {
   const { id } = req.params;
-  const { nom, prenom, adresse, entreprise, experience, phone } = req.body;
+  const { nom, prenom, adresse, entreprise, experience, phone, cin } = req.body;
   try {
     let courtier = await Courtier.findByPk(id);
     if (!courtier) {
@@ -64,6 +66,7 @@ const updateCourtier = async (req, res) => {
       entreprise,
       experience,
       phone,
+      cin,
     });
     res.status(200).json(courtier);
   } catch (error) {

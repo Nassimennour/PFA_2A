@@ -4,10 +4,12 @@ const routes = require("./routes");
 const logger = require("./logger");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
+app.use(cors());
 app.use(express.json());
 
 // JWT verification middleware
@@ -29,7 +31,13 @@ function authenticateToken(req, res, next) {
 function excludeRoutes(paths, middleware) {
   return function (req, res, next) {
     const baseRoute = req.path.split("/")[1];
-    if (paths.includes(`/${baseRoute}`) && req.method === "POST") {
+    if (
+      (paths.includes(`/${baseRoute}`) && req.method === "POST") ||
+      ((req.path.startsWith("/users/username") ||
+        req.path.startsWith("/users/id") ||
+        req.path.startsWith("/organismesprets")) &&
+        req.method === "GET")
+    ) {
       return next();
     } else {
       return middleware(req, res, next);

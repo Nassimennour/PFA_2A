@@ -27,3 +27,76 @@
 {"level":"info","message":"Received a GET request for /clients/","service":"user-service"}
 {"level":"info","message":"Received a GET request for /demandesprets/","service":"user-service"}
 {"level":"info","message":"Received a GET request for /courtiers/","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a OPTIONS request for /users","service":"user-service"}
+{"level":"info","message":"Received a OPTIONS request for /users","service":"user-service"}
+{"level":"info","message":"Received a OPTIONS request for /users","service":"user-service"}
+{"level":"info","message":"Received a OPTIONS request for /users","service":"user-service"}
+{"level":"info","message":"Received a OPTIONS request for /users","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user3","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user2","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user1","service":"user-service"}
+{"level":"info","message":"Received a POST request for /clients","service":"user-service"}
+{"level":"info","message":"Received a POST request for /login","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user2","service":"user-service"}
+{"level":"info","message":"Received a POST request for /courtiers","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users/username/user2","service":"user-service"}
+{"level":"info","message":"Received a POST request for /courtiers","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a GET request for /organismesprets","service":"user-service"}
+{"level":"info","message":"Received a GET request for /organismesprets","service":"user-service"}
+{"level":"info","message":"Received a GET request for /organismesprets","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /favicon.ico","service":"user-service"}
+{"level":"info","message":"Server started on port 3000","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a POST request for /users","service":"user-service"}
+{"level":"info","message":"Received a GET request for /organismesprets","service":"user-service"}
