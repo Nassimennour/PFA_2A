@@ -10,6 +10,7 @@ const {
   countActiveLoansByOrganismePret,
   countLoansByOrganismePret,
   averageLoanAmountByOrganismePret,
+  countOrganismesPret,
 } = require("../controllers/organismePretController");
 
 router.post("/", createOrganismePret);
@@ -21,5 +22,6 @@ router.get("/search/:nom", searchOrganismesPretByName);
 router.get("/count/activeLoans", countActiveLoansByOrganismePret);
 router.get("/count/loans", countLoansByOrganismePret);
 router.get("/average/loanAmount", averageLoanAmountByOrganismePret);
+router.get("/count", countOrganismesPret);
 
 module.exports = router;

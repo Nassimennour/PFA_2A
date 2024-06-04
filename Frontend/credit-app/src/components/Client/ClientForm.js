@@ -9,6 +9,7 @@ function ClientForm({ username }) {
   const [adresse, setAdresse] = useState("");
   const [telephone, setTelephone] = useState("");
   const [dateNaissance, setDateNaissance] = useState("");
+  const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,6 +26,7 @@ function ClientForm({ username }) {
         nom,
         prenom,
         cin,
+        gender,
         adresse,
         telephone,
         dateNaissance,
@@ -48,7 +50,7 @@ function ClientForm({ username }) {
         <div className="container">
           <div className="signup-content">
             <form onSubmit={handleSubmit} className="signup-form">
-              <h2 className="form-title">Client Registration</h2>
+              <h2 className="form-title">Compléter votre inscription</h2>
               <div className="form-group">
                 <input
                   type="text"
@@ -63,7 +65,7 @@ function ClientForm({ username }) {
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Prenom"
+                  placeholder="Prénom"
                   value={prenom}
                   onChange={(e) => setPrenom(e.target.value)}
                   required
@@ -80,6 +82,18 @@ function ClientForm({ username }) {
                 />
               </div>
               <div className="form-group">
+                <select
+                  className="form-input"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                  required
+                >
+                  <option value="">Sexe</option>
+                  <option value="male">Homme</option>
+                  <option value="female">Femme</option>
+                </select>
+              </div>
+              <div className="form-group">
                 <input
                   type="text"
                   className="form-input"
@@ -93,7 +107,7 @@ function ClientForm({ username }) {
                 <input
                   type="tel"
                   className="form-input"
-                  placeholder="Telephone"
+                  placeholder="Téléphone"
                   value={telephone}
                   onChange={(e) => setTelephone(e.target.value)}
                   required
@@ -115,7 +129,7 @@ function ClientForm({ username }) {
                   name="submit"
                   id="submit"
                   className="form-submit"
-                  value="Register"
+                  value="S'inscrire"
                 />
               </div>
             </form>

@@ -10,6 +10,7 @@ const {
   deleteClient,
   clientAnalysis,
   searchClientsByName,
+  getClientByUserId,
 } = require("../controllers/clientController");
 
 const validateClient = [
@@ -41,6 +42,8 @@ router.post("/", validateClient, (req, res) => {
 router.get("/", getAllClients);
 // Route to get a client by ID
 router.get("/:id", getClientById);
+//Route to get a client by UserId
+router.get("/userId/:userId", getClientByUserId);
 // Route to update a client
 router.put("/:id", validateClient, (req, res) => {
   const errors = validationResult(req);

@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Rounded corners */
+}
+
+.button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.button + .button {
+  margin-left: 10px; /* Space between buttons */
+}
+
+.button:nth-child(1) {
+  background-color: #008cba; /* Blue */
+}
+
+.button:nth-child(1):hover {
+  background-color: #007b9a; /* Darker blue on hover */
+}
+
+.tableContainer {
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.table td {
+  padding: 10px;
+}
+
+.createButton {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.createButton:hover {
+  background-color: #0000cc;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.rejected {
+  background-color: red;
+}
+
+.accepted {
+  background-color: green;
+}
+
+.emptyMessage {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}

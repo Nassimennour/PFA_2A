@@ -5,7 +5,7 @@ const sequelize = require("../config/database");
 const Document = sequelize.define("Document", {
   cheminFichier: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   nomOriginal: {
     type: DataTypes.STRING,
@@ -21,8 +21,7 @@ const Document = sequelize.define("Document", {
     defaultValue: DataTypes.NOW,
   },
   taille: {
-    // en Ko
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT, //en ko
     allowNull: true,
   },
   status: {

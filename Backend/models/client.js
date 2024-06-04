@@ -22,7 +22,7 @@ const Client = sequelize.define("Client", {
   },
   telephone: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     validate: {
       is: {
         args: [/^\d{9,10}$/],
@@ -36,10 +36,15 @@ const Client = sequelize.define("Client", {
   },
   adresse: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   dateNaissance: {
     type: DataTypes.DATE,
+    allowNull: false,
+  },
+  gender: {
+    type: DataTypes.ENUM,
+    values: ["male", "female"],
     allowNull: false,
   },
 });

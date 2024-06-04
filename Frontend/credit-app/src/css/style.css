@@ -106,6 +106,98 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.main.menu-open {
+  opacity: 0.5; /* Change this to your liking */
+}
+
+.file-input {
+  display: none; /* Hide the default file input */
+}
+
+.client-profile-img {
+  width: 180px; /* Adjust as needed */
+  height: 180px; /* Adjust as needed */
+  border-radius: 50%; /* make the image circular */
+  object-fit: cover; /* This makes sure the image covers the whole area */
+  border: 2px solid #007bff; /* This adds a border. Change the color to match your theme */
+}
+
+.profile-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%; /* This makes the image circular */
+  object-fit: cover; /* This makes sure the image covers the whole area */
+  border: 2px solid #000; /* This adds an outline. Adjust color as needed */
+  margin-bottom: 15px; /* This adds some space between the photo and the name */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f8f9fa; /* Change this to match your theme */
+  border: 1px solid #ced4da; /* Change this to match your theme */
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057; /* Change this to match your theme */
+}
+
+.custom-file-upload:hover {
+  background-color: #e9ecef; /* Change this to match your theme */
+}
+
+.upload-button {
+  margin-top: 10px;
+  background-color: #007bff; /* Change this to match your theme */
+  border: none;
+  color: white; /* Change this to match your theme */
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background-color: #0069d9; /* Change this to match your theme */
+  color: white;
+}
+
+.file-input:hover {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.file-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.close-button {
+  color: white;
+  background-color: red;
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
 input:focus,
 select:focus,
 textarea:focus {
@@ -180,6 +272,13 @@ body {
   -ms-background-size: cover;
   background-position: center center;
   padding: 115px 0;
+}
+.modal input[type="text"] {
+  font-family: "Courier New", Courier, monospace; /* Stylish font */
+}
+
+.modal label {
+  font-family: "Courier New", Courier, monospace; /* Stylish font */
 }
 
 .container {

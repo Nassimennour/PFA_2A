@@ -15,13 +15,14 @@ const Courtier = sequelize.define("Courtier", {
     allowNull: false,
     unique: true,
   },
+
   adresse: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   entreprise: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   experience: {
     type: DataTypes.INTEGER,

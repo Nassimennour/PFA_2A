@@ -12,6 +12,26 @@ const createClient = async (req, res) => {
   }
 };
 
+const getClientByUserId = async (req, res) => {
+  try {
+    const client = await Client.findOne({
+      where: { userId: req.params.userId },
+    });
+    if (client) {
+      res.status(200).json(client);
+    } else {
+      res
+        .status(404)
+        .json({ error: "No client found with the provided userId." });
+    }
+  } catch (error) {
+    console.error("Error retrieving client:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving the client." });
+  }
+};
+
 const getAllClients = async (req, res) => {
   try {
     const clients = await Client.findAll();
@@ -84,6 +104,8 @@ const clientAnalysis = async () => {
   try {
     // Total number of clients
     const totalClients = await Client.count();
+        console.log("Total Clients:", totalClients);
+
     // Total number of clients grouped by age range
     const clientsByAgeRange = await Client.findAll({
       attributes: [
@@ -101,15 +123,19 @@ const clientAnalysis = async () => {
         ),
       ],
     });
+        console.log("Clients by Age Range:", clientsByAgeRange);
+
 
     // Total number of clients per gender
     const clientsByGender = await Client.findAll({
       attributes: [
-        "genre",
+        "gender",
         [sequelize.fn("count", sequelize.col("id")), "count"],
       ],
-      group: ["genre"],
+      group: ["gender"],
     });
+        console.log("Clients by Gender:", clientsByGender);
+
 
     return {
       totalClients,
@@ -151,4 +177,5 @@ module.exports = {
   deleteClient,
   clientAnalysis,
   searchClientsByName,
+  getClientByUserId,
 };

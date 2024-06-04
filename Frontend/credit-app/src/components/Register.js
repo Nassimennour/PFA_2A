@@ -66,14 +66,14 @@ function Register() {
         <div className="container">
           <div className="signup-content">
             <form onSubmit={handleSubmit} className="signup-form">
-              <h2 className="form-title">Create account</h2>
+              <h2 className="form-title">Créer un compte</h2>
               <div className="form-group">
                 <input
                   type="text"
                   className="form-input"
                   name="username"
                   id="username"
-                  placeholder="Username"
+                  placeholder="Login"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -84,7 +84,7 @@ function Register() {
                   className="form-input"
                   name="email"
                   id="email"
-                  placeholder="Your Email"
+                  placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -95,7 +95,7 @@ function Register() {
                   className="form-input"
                   name="password"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -111,7 +111,7 @@ function Register() {
                   className="form-input"
                   name="re_password"
                   id="re_password"
-                  placeholder="Repeat your password"
+                  placeholder="Répéter votre mot de passe"
                   value={rePassword}
                   onChange={(e) => setRePassword(e.target.value)}
                 />
@@ -147,9 +147,9 @@ function Register() {
                   <span>
                     <span></span>
                   </span>
-                  I agree all statements in{" "}
+                  J'accepte toutes les déclarations dans{" "}
                   <a href="#" className="term-service">
-                    Terms of service
+                    Les conditions d'utilisation
                   </a>
                 </label>
               </div>
@@ -159,14 +159,14 @@ function Register() {
                   name="submit"
                   id="submit"
                   className="form-submit"
-                  value="Sign up"
+                  value="Créer"
                 />
               </div>
             </form>
             <p className="loginhere">
-              Have already an account ?{" "}
+              Vous avez déjà un compte ?{" "}
               <a href="#" className="loginhere-link" onClick={handleLogin}>
-                Login here
+                Connectez-vous ici
               </a>
             </p>
           </div>

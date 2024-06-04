@@ -42,6 +42,7 @@ const AgentPret = sequelize.define("AgentPret", {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
+
   diplome: {
     type: DataTypes.STRING,
     allowNull: true,

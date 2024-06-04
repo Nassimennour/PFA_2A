@@ -9,6 +9,7 @@ const agentPretRoutes = require("./agentPretRoutes");
 const organismePretRoutes = require("./organismePretRoutes");
 const demandePretRoutes = require("./demandePretRoutes");
 const typeDocumentRoutes = require("./typeDocumentRoutes");
+const interestRateRoutes = require("./interestRateRoutes");
 
 module.exports = {
   userRoutes,
@@ -22,4 +23,5 @@ module.exports = {
   organismePretRoutes,
   demandePretRoutes,
   typeDocumentRoutes,
+  interestRateRoutes,
 };

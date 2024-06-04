@@ -66,7 +66,7 @@ function AgentPretForm({ username }) {
         <div className="container">
           <div className="signup-content">
             <form onSubmit={handleSubmit} className="signup-form">
-              <h2 className="form-title">Agent Prêt Registration</h2>
+              <h2 className="form-title">Complétez votre inscription</h2>
               <div className="form-group">
                 <input
                   type="text"
@@ -135,7 +135,7 @@ function AgentPretForm({ username }) {
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Num Licence"
+                  placeholder="N° de Licence"
                   value={numLicence}
                   onChange={(e) => setNumLicence(e.target.value)}
                 />
@@ -144,7 +144,7 @@ function AgentPretForm({ username }) {
                 <input
                   type="number"
                   className="form-input"
-                  placeholder="Annees Experience"
+                  placeholder="Années Experience"
                   value={anneesExperience}
                   onChange={(e) => setAnneesExperience(e.target.value)}
                 />
@@ -153,7 +153,7 @@ function AgentPretForm({ username }) {
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Diplome"
+                  placeholder="Diplôme"
                   value={diplome}
                   onChange={(e) => setDiplome(e.target.value)}
                 />

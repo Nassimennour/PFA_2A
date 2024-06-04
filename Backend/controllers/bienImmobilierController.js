@@ -2,13 +2,14 @@ const { BienImmobilier } = require("../models");
 
 const createBienImmobilier = async (req, res) => {
   try {
-    const { typeBien, adresse, superficie, nbPieces, valeur } = req.body;
+    const { typeBien, adresse, superficie, nbPieces, valeur, photo } = req.body;
     const newBienImmobilier = await BienImmobilier.create({
       typeBien,
       adresse,
       superficie,
       nbPieces,
       valeur,
+      photo,
     });
     res.status(201).json(newBienImmobilier);
   } catch (error) {
@@ -49,7 +50,7 @@ const getBienImmobilierById = async (req, res) => {
 
 const updateBienImmobilier = async (req, res) => {
   const { id } = req.params;
-  const { typeBien, adresse, superficie, nbPieces, valeur } = req.body;
+  const { typeBien, adresse, superficie, nbPieces, valeur, photo } = req.body;
   try {
     let bienImmobilier = await BienImmobilier.findByPk(id);
     if (!bienImmobilier) {
@@ -61,6 +62,7 @@ const updateBienImmobilier = async (req, res) => {
       superficie,
       nbPieces,
       valeur,
+      photo,
     });
     res.status(200).json(bienImmobilier);
   } catch (error) {

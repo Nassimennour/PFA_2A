@@ -24,6 +24,10 @@ const User = sequelize.define("User", {
     type: DataTypes.ENUM("admin", "client", "courtier", "agentPret"),
     allowNull: false,
   },
+  photo: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 });
 
 User.addHook("beforeSave", async (user) => {

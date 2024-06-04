@@ -11,6 +11,7 @@ const {
   getLastDemandePretByClientId,
   getAllDemandePretsByCourtierId,
   submitJudgment,
+  getDemandePretWithClientByCourtier,
 } = require("../controllers/demandePretController");
 
 router.post("/", createDemandePret);
@@ -23,5 +24,6 @@ router.get("/organisme/:organismePretId", getAllDemandePretsToOrganismePret);
 router.get("/last/client/:clientId", getLastDemandePretByClientId);
 router.get("/courtier/:courtierId", getAllDemandePretsByCourtierId);
 router.post("/judgment/:demandeId", submitJudgment);
+router.get("/courtier/clients/:courtierId", getDemandePretWithClientByCourtier);
 
 module.exports = router;

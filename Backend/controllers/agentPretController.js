@@ -12,6 +12,7 @@ const createAgentPret = async (req, res) => {
       anneesExperience,
       diplome,
       organismePretId,
+      userId,
     } = req.body;
 
     const newAgentPret = await AgentPret.create({
@@ -24,6 +25,7 @@ const createAgentPret = async (req, res) => {
       anneesExperience,
       diplome,
       organismePretId,
+      userId,
     });
 
     res.status(201).json(newAgentPret);
@@ -47,6 +49,7 @@ const updateAgentPret = async (req, res) => {
     anneesExperience,
     diplome,
     organismePretId,
+    userId,
   } = req.body;
 
   try {
@@ -65,6 +68,7 @@ const updateAgentPret = async (req, res) => {
       anneesExperience,
       diplome,
       organismePretId,
+      userId,
     });
 
     res.status(200).json(agentPret);
@@ -135,6 +139,21 @@ const getAgentsByOrganismePretId = async (req, res) => {
       .json({ error: "An error occurred while retrieving agents." });
   }
 };
+const getAgentPretByUserId = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const agentPret = await AgentPret.findOne({ where: { userId } });
+    if (!agentPret) {
+      return res.status(404).json({ error: "AgentPret not found." });
+    }
+    res.status(200).json(agentPret);
+  } catch (error) {
+    console.error("Error retrieving AgentPret by User ID:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving AgentPret." });
+  }
+};
 
 module.exports = {
   createAgentPret,
@@ -143,4 +162,5 @@ module.exports = {
   updateAgentPret,
   deleteAgentPret,
   getAgentsByOrganismePretId,
+  getAgentPretByUserId,
 };

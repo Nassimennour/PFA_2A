@@ -27,9 +27,15 @@ exports.getUserById = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-  const { username, email, password, role } = req.body;
+  const { username, email, password, role, photo } = req.body;
   try {
-    const newUser = await User.create({ username, email, password, role });
+    const newUser = await User.create({
+      username,
+      email,
+      password,
+      role,
+      photo,
+    });
     res.status(201).json(newUser);
   } catch (error) {
     console.error(error);
@@ -39,8 +45,7 @@ exports.createUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { username, email, password, role, clientId, courtierId, agentPretId } =
-    req.body;
+  const { username, email, password, role, photo } = req.body;
   try {
     let user = await User.findByPk(id);
     if (!user) {
@@ -50,9 +55,7 @@ exports.updateUser = async (req, res) => {
     user.email = email;
     user.password = password;
     user.role = role;
-    user.clientId = clientId;
-    user.courtierId = courtierId;
-    user.agentPretId = agentPretId;
+    user.photo = photo;
     await user.save();
     res.json(user);
   } catch (error) {
@@ -129,5 +132,25 @@ exports.getUserByAgentPretId = async (req, res) => {
   } catch (error) {
     console.error("Error retrieving User by agentPretId:", error);
     res.status(500).json({ error: "An error occurred while retrieving User." });
+  }
+};
+
+exports.getUsersCountByRole = async (req, res) => {
+  try {
+    const usersCountByRole = await User.findAll({
+      attributes: [
+        "role",
+        [sequelize.fn("COUNT", sequelize.col("role")), "count"],
+      ],
+      group: ["role"],
+      raw: true,
+    });
+
+    res.status(200).json(usersCountByRole);
+  } catch (error) {
+    console.error("Error retrieving users count by role:", error);
+    res.status(500).json({
+      error: "An error occurred while retrieving users count by role.",
+    });
   }
 };

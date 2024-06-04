@@ -107,6 +107,21 @@ const analyzeAllDossierPrets = async (req, res) => {
       .json({ error: "An error occurred while analyzing DossierPrets." });
   }
 };
+const getDossierPretByDemandePretId = async (req, res) => {
+  const { demandePretId } = req.params;
+  try {
+    const dossierPret = await DossierPret.findOne({ where: { demandePretId } });
+    if (!dossierPret) {
+      return res.status(404).json({ error: "DossierPret not found." });
+    }
+    res.status(200).json(dossierPret);
+  } catch (error) {
+    console.error("Error retrieving DossierPret by demandePretId:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving DossierPret." });
+  }
+};
 
 module.exports = {
   createDossierPret,
@@ -115,4 +130,5 @@ module.exports = {
   updateDossierPret,
   deleteDossierPret,
   analyzeAllDossierPrets,
+  getDossierPretByDemandePretId,
 };

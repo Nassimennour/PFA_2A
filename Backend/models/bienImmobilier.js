@@ -30,6 +30,10 @@ const BienImmobilier = sequelize.define("BienImmobilier", {
       min: 0,
     },
   },
+  photo: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 });
 
 module.exports = (sequelize, DataTypes) => {

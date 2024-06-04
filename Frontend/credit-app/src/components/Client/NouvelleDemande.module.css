@@ -1,0 +1,21 @@
+.container {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  margin: 0px auto;
+  max-width: 800px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+  font-size: 29px;
+  margin-bottom: 20px;
+}
+
+.form {
+  flex-grow: 1;
+}

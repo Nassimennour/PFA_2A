@@ -7,6 +7,7 @@ const {
   updateDossierPret,
   deleteDossierPret,
   analyzeAllDossierPrets,
+  getDossierPretByDemandePretId,
 } = require("../controllers/dossierPretController");
 
 router.post("/", createDossierPret);
@@ -15,5 +16,6 @@ router.get("/:id", getDossierPretById);
 router.put("/:id", updateDossierPret);
 router.delete("/:id", deleteDossierPret);
 router.get("/analyze", analyzeAllDossierPrets);
+router.get("/demandePret/:demandePretId", getDossierPretByDemandePretId);
 
 module.exports = router;

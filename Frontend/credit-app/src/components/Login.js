@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -22,8 +23,19 @@ function Login() {
         password,
       });
       if (response.status === 200) {
-        saveToken(response.data.token);
         alert("Login successful");
+        const token = response.data.token;
+        saveToken(token);
+        const role = jwtDecode(token).role;
+        if (role === "client") {
+          navigate("/client/profile");
+        } else if (role === "courtier") {
+          navigate("/courtier/profile");
+        } else if (role === "agentPret") {
+          navigate("/agent/profile");
+        } else if (role === "admin") {
+          navigate("/admin/home");
+        }
       } else {
         alert("Login failed");
       }
@@ -43,14 +55,14 @@ function Login() {
         <div className="container">
           <div className="signup-content">
             <form onSubmit={handleSubmit} className="signup-form">
-              <h2 className="form-title">Login</h2>
+              <h2 className="form-title">Se connecter</h2>
               <div className="form-group">
                 <input
                   type="text"
                   className="form-input"
                   name="username"
                   id="username"
-                  placeholder="Username"
+                  placeholder="Login"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -61,7 +73,7 @@ function Login() {
                   className="form-input"
                   name="password"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -82,9 +94,9 @@ function Login() {
               </div>
             </form>
             <p className="loginhere">
-              Don't have an account?{" "}
+              Vous n'avez pas de compte?{" "}
               <a href="#" className="loginhere-link" onClick={handleRegister}>
-                Register here
+                Inscrivez-vous ici
               </a>
             </p>
           </div>

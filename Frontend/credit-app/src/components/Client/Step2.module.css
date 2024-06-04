@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 2px solid #000;
+}
+
+.card:nth-child(3n + 1) {
+  background-color: #f9f9f9; /* Light gray */
+}
+
+.card:nth-child(3n + 2) {
+  background-color: #f9fcef; /* Light green */
+}
+
+.card::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #000, transparent);
+  position: absolute;
+  right: 0;
+}
+
+.card:nth-child(3n + 3) {
+  background-color: #f9f2fc; /* Light purple */
+}
+
+.contactInfo {
+  font-size: 16px;
+  color: #6c757d;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  transition: transform 0.3s ease, z-index 0.3s ease; /* Add transition for smooth effect */
+}
+.card:hover {
+  transform: scale(1.1); /* Make the card bigger */
+  z-index: 1; /* Bring the card to the foreground */
+}
+
+.cardButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cardButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}

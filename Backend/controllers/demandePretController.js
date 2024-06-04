@@ -1,10 +1,11 @@
-const { DemandePret } = require("../models");
+const { DemandePret, Client, OrganismePret } = require("../models");
 
 const createDemandePret = async (req, res) => {
   try {
     const {
       montant,
       duree,
+      interestRate,
       dateSoumission,
       clientId,
       courtierId,
@@ -15,6 +16,7 @@ const createDemandePret = async (req, res) => {
     const newDemandePret = await DemandePret.create({
       montant,
       duree,
+      interestRate,
       dateSoumission,
       clientId,
       courtierId,
@@ -65,6 +67,7 @@ const updateDemandePret = async (req, res) => {
   const {
     montant,
     duree,
+    interestRate,
     dateSoumission,
     judgment,
     comment,
@@ -81,6 +84,7 @@ const updateDemandePret = async (req, res) => {
     demandePret = await demandePret.update({
       montant,
       duree,
+      interestRate,
       dateSoumission,
       judgment,
       comment,
@@ -115,19 +119,28 @@ const deleteDemandePret = async (req, res) => {
   }
 };
 
-const getLastDemandePretByClientId = async (req, res) => {
+exports.getLastDemandePretByClientId = async (req, res) => {
   const { clientId } = req.params;
   try {
-    const lastDemandePret = await DemandePret.findOne({
+    const demandePrets = await DemandePret.findAll({
       where: { clientId },
       order: [["createdAt", "DESC"]],
+      limit: 2,
     });
-    res.status(200).json(lastDemandePret);
+    if (!demandePrets || demandePrets.length < 2) {
+      return res.status(404).json({
+        error: "Second last DemandePret not found for this clientId.",
+      });
+    }
+    res.status(200).json(demandePrets[1]);
   } catch (error) {
-    console.error("Error retrieving last DemandePret:", error);
+    console.error(
+      "Error retrieving second last DemandePret by clientId:",
+      error
+    );
     res
       .status(500)
-      .json({ error: "An error occurred while retrieving last DemandePret." });
+      .json({ error: "An error occurred while retrieving DemandePret." });
   }
 };
 
@@ -196,6 +209,57 @@ const getAllDemandePretsByCourtierId = async (req, res) => {
   }
 };
 
+const getLastDemandePretByClientId = async (req, res) => {
+  const { clientId } = req.params;
+  try {
+    const demandePrets = await DemandePret.findAll({
+      where: { clientId },
+      order: [["createdAt", "DESC"]],
+      limit: 2,
+    });
+    if (!demandePrets || demandePrets.length < 2) {
+      return res.status(404).json({
+        error: "Second last DemandePret not found for this clientId.",
+      });
+    }
+    res.status(200).json(demandePrets[1]);
+  } catch (error) {
+    console.error(
+      "Error retrieving second last DemandePret by clientId:",
+      error
+    );
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving DemandePret." });
+  }
+};
+
+const getDemandePretWithClientByCourtier = async (req, res) => {
+  try {
+    const { courtierId } = req.params;
+    const demandePrets = await DemandePret.findAll({
+      where: { courtierId },
+      include: [
+        {
+          model: Client,
+          attributes: ["nom", "prenom"], // Only get 'nom' and 'prenom' fields from the Client model
+        },
+        {
+          model: OrganismePret,
+          attributes: ["nom"], // Only get 'nom' field from the OrganismePret model
+        },
+      ],
+    });
+
+    res.status(200).json(demandePrets);
+  } catch (error) {
+    console.error("Error fetching DemandePret with Client:", error);
+    res.status(500).json({
+      error: "An error occurred while fetching DemandePret with Client.",
+    });
+  }
+};
+
 module.exports = {
   createDemandePret,
   getAllDemandePrets,
@@ -207,4 +271,5 @@ module.exports = {
   getLastDemandePretByClientId,
   getAllDemandePretsByCourtierId,
   submitJudgment,
+  getDemandePretWithClientByCourtier,
 };

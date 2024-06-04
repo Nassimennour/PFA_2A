@@ -54,7 +54,7 @@ function CourtierForm({ username }) {
         <div className="container">
           <div className="signup-content">
             <form onSubmit={handleSubmit} className="signup-form">
-              <h2 className="form-title">Courtier Registration</h2>
+              <h2 className="form-title">Complétez votre inscription</h2>
               <div className="form-group">
                 <input
                   type="text"
@@ -109,7 +109,7 @@ function CourtierForm({ username }) {
                 <input
                   type="number"
                   className="form-input"
-                  placeholder="Experience"
+                  placeholder="Années d'Expérience"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
                 />
@@ -118,7 +118,7 @@ function CourtierForm({ username }) {
                 <input
                   type="tel"
                   className="form-input"
-                  placeholder="Phone"
+                  placeholder="Téléphone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -130,7 +130,7 @@ function CourtierForm({ username }) {
                   name="submit"
                   id="submit"
                   className="form-submit"
-                  value="Register"
+                  value="S'inscrire"
                 />
               </div>
             </form>

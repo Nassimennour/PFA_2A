@@ -1,0 +1,68 @@
+.document {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  flex-direction: column;
+}
+
+.document label {
+  flex-grow: 1;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.document input[type="file"] {
+  margin-right: 1em;
+  border: 1px solid #ddd;
+  padding: 10px;
+  color: #888;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+}
+
+.document input[type="file"]:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.document button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.document button:hover {
+  background-color: #0056b3;
+}
+
+.document .MuiSvgIcon-root {
+  cursor: pointer;
+  color: #007bff;
+  margin-top: 0.5em;
+}
+
+.section {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.continueButton {
+  background-color: #17e14a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.continueButton:hover {
+  background-color: #00b41b;
+}

@@ -5,7 +5,7 @@ const sequelize = require("../config/database");
 const DemandePret = sequelize.define("DemandePret", {
   montant: {
     type: DataTypes.FLOAT,
-    allowNull: false,
+    allowNull: true,
     validate: {
       min: 0,
       isFloat: true,
@@ -13,14 +13,23 @@ const DemandePret = sequelize.define("DemandePret", {
   },
   duree: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     validate: {
       min: 0,
+    },
+  },
+  interestRate: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+    validate: {
+      min: 0,
+      isFloat: true,
     },
   },
   dateSoumission: {
     type: DataTypes.DATE,
     allowNull: true,
+    defaultValue: DataTypes.NOW,
   },
   judgment: {
     type: DataTypes.ENUM,

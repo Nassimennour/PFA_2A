@@ -48,5 +48,6 @@ router.get("/username/:username", userController.getUserByUsername);
 router.get("/clientId/:clientId", userController.getUserByClientId);
 router.get("/courtierId/:courtierId", userController.getUserByCourtierId);
 router.get("/agentPretId/:agentPretId", userController.getUserByAgentPretId);
+router.get("/count", userController.getUsersCountByRole);
 
 module.exports = router;

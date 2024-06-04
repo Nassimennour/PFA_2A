@@ -14,6 +14,7 @@ const associateModels = (models) => {
     TypeDocument,
     BienImmobilier,
     OrganismePretTypeDocument,
+    InterestRate,
   } = models;
 
   User.hasOne(Client, { foreignKey: "userId" });
@@ -27,12 +28,14 @@ const associateModels = (models) => {
 
   // User has many DemandesPret (assuming you meant DemandePret)
   Client.hasMany(DemandePret, { foreignKey: "clientId" });
+  DemandePret.belongsTo(Client, { foreignKey: "clientId" });
 
   // DemandePret can have one Courtier or null
   DemandePret.belongsTo(Courtier, {
     foreignKey: "courtierId",
     allowNull: true,
   });
+  Courtier.hasMany(DemandePret, { foreignKey: "courtierId" });
 
   // AgentPret has one OrganismePret
   AgentPret.belongsTo(OrganismePret, { foreignKey: "organismePretId" });
@@ -42,19 +45,21 @@ const associateModels = (models) => {
 
   // DemandePret has one DossierPret
   DemandePret.hasOne(DossierPret, { foreignKey: "demandePretId" });
+  DossierPret.belongsTo(DemandePret, { foreignKey: "demandePretId" });
 
   // DossierPret has many Documents
   DossierPret.hasMany(Document, { foreignKey: "dossierPretId" });
+  Document.belongsTo(DossierPret, { foreignKey: "dossierPretId" });
 
   // Document is related to one TypeDocument
   Document.belongsTo(TypeDocument, { foreignKey: "typeDocumentId" });
+  TypeDocument.hasMany(Document, { foreignKey: "typeDocumentId" });
 
-  // DemandePret is related to one BienImmobilier
   DemandePret.belongsTo(BienImmobilier, { foreignKey: "bienImmobilierId" });
-  // DemandePret belongs to OrganismePret
+  BienImmobilier.hasMany(DemandePret, { foreignKey: "bienImmobilierId" });
   DemandePret.belongsTo(OrganismePret, { foreignKey: "organismePretId" });
+  OrganismePret.hasMany(DemandePret, { foreignKey: "organismePretId" });
 
-  // Note is related to one User (Client) and one Courtier
   Note.belongsTo(User, { as: "client", foreignKey: "clientId" });
   Note.belongsTo(Courtier, { foreignKey: "courtierId" });
   TypeDocument.belongsToMany(OrganismePret, {
@@ -63,7 +68,8 @@ const associateModels = (models) => {
   OrganismePret.belongsToMany(TypeDocument, {
     through: "OrganismePretTypeDocument",
   });
-  // Define other associations...
+  InterestRate.belongsTo(OrganismePret, { foreignKey: "organismePretId" });
+  OrganismePret.hasMany(InterestRate, { foreignKey: "organismePretId" });
 
   return models;
 };

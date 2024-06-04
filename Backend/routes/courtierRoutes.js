@@ -4,9 +4,10 @@ const {
   createCourtier,
   getAllCourtiers,
   getCourtierById,
+  getCourtierByUserId,
   updateCourtier,
   deleteCourtier,
-  countActiveLoansByCourtier,
+  getLoanStatsByCourtier,
   countLoansByCourtier,
   averageLoanAmountByCourtier,
 } = require("../controllers/courtierController");
@@ -14,7 +15,6 @@ const {
 const { check, validationResult } = require("express-validator");
 
 const validateCourtier = [
-  // Validate fields.
   check("nom").isLength({ min: 1 }).withMessage("Name must be specified."),
   check("prenom")
     .isLength({ min: 1 })
@@ -57,10 +57,11 @@ router.put("/:id", validateCourtier, (req, res) => {
 // Route to delete a courtier
 router.delete("/:id", deleteCourtier);
 // Route to get count of active loans by courtier
-router.get("/active-loans/count", countActiveLoansByCourtier);
 // Route to get count of loans by courtier
 router.get("/loans/count", countLoansByCourtier);
 // Route to get average loan amount by courtier
 router.get("/loans/average", averageLoanAmountByCourtier);
+router.get("/user/:userId", getCourtierByUserId);
+router.get("/stats/:id", getLoanStatsByCourtier);
 
 module.exports = router;

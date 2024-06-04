@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
   createAgentPret,
@@ -7,13 +7,15 @@ const {
   updateAgentPret,
   deleteAgentPret,
   getAgentsByOrganismePretId,
-} = require('../controllers/agentPretController');
+  getAgentPretByUserId,
+} = require("../controllers/agentPretController");
 
-router.post('/', createAgentPret);
-router.get('/', getAllAgentPrets);
-router.get('/:id', getAgentPretById);
-router.put('/:id', updateAgentPret);
-router.delete('/:id', deleteAgentPret);
-router.get('/organisme/:organismePretId', getAgentsByOrganismePretId);
+router.post("/", createAgentPret);
+router.get("/", getAllAgentPrets);
+router.get("/:id", getAgentPretById);
+router.put("/:id", updateAgentPret);
+router.delete("/:id", deleteAgentPret);
+router.get("/organisme/:organismePretId", getAgentsByOrganismePretId);
+router.get("/user/:userId", getAgentPretByUserId);
 
 module.exports = router;

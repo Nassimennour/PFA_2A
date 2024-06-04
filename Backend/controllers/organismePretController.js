@@ -130,6 +130,17 @@ const countActiveLoansByOrganismePret = async () => {
     ],
   });
 };
+const countOrganismesPret = async (req, res) => {
+  try {
+    const count = await OrganismePret.count();
+    res.status(200).json({ count });
+  } catch (error) {
+    console.error("Error counting OrganismePret:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while counting OrganismePret." });
+  }
+};
 
 module.exports = {
   createOrganismePret,
@@ -141,4 +152,5 @@ module.exports = {
   countActiveLoansByOrganismePret,
   countLoansByOrganismePret,
   averageLoanAmountByOrganismePret,
+  countOrganismesPret,
 };
